@@ -3,7 +3,7 @@ const path = require("path");
 const express = require("express");
 
 // ! Express.js Router is a valid Middleware Function!
-const adminRoutes = require("./routes/admin");
+const adminData = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
 
 const app = express();
@@ -13,7 +13,7 @@ const app = express();
 app.use(express.urlencoded());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/admin", adminRoutes);
+app.use("/admin", adminData.router);
 app.use(shopRoutes);
 
 // If an invalid URL was provided, we don't 'enter' any admin/shop Routes, thus we don't execute any Middleware, THUS we pass to this one
