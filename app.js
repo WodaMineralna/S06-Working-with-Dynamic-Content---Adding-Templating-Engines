@@ -8,6 +8,9 @@ const shopRoutes = require("./routes/shop");
 
 const app = express();
 
+app.set("view engine", "pug");
+app.set("views", "views") // default - `process path + "/views"` - so we don't have to add it there
+
 // * Parses Bodies sent through a FORM
 // ^ and it automatically calls `next()`
 app.use(express.urlencoded());
