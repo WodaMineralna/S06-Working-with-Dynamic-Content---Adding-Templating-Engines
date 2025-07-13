@@ -17,7 +17,7 @@ router.get("/", (req, res, next) => {
   const products = adminData.products;
 
   // ! We dont have to specify the templating engine / path to the 'views' folder, because we did it in app.js
-  res.render("shop", { products, docTitle: "Shop" });
+  res.render("shop", { products, pageTitle: "Shop", path: "/" });
 
   // // * Default Response Header: "text/html"
   // res.sendFile(path.join(rootDir, "views", "shop.html")); // // ! We use path.join() so it works on Linux & Windows !!
