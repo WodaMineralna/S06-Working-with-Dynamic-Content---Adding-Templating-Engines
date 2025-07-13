@@ -15,6 +15,9 @@ router.get("/add-product", (req, res, next) => {
   res.render("add-product", {
     pageTitle: "Add Product",
     path: "/admin/add-product",
+    formsCSS: true,
+    productCSS: true,
+    activeAddProduct: true,
   });
   // // * Default Response Header: "text/html"
   // res.sendFile(path.join(rootDir, "views", "add-product.html"));
