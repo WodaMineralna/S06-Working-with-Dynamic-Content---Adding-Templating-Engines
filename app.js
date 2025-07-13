@@ -21,7 +21,7 @@ app.use(shopRoutes);
 
 // If an invalid URL was provided, we don't 'enter' any admin/shop Routes, thus we don't execute any Middleware, THUS we pass to this one
 app.use((req, res, next) => {
-  res.status(404).sendFile(path.join(__dirname, "views", "404.html"));
+  res.status(404).render("404", { pageTitle: "404 Not Found!" })
 });
 
 // * Handle favicon.ico requests to prevent browsers from triggering middleware twice
