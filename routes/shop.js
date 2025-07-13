@@ -21,9 +21,6 @@ router.get("/", (req, res, next) => {
     products,
     pageTitle: "Shop",
     path: "/",
-    hasProducts: products.length > 0,
-    activeShop: true,
-    productCSS: true,
   });
 
   // // * Default Response Header: "text/html"
