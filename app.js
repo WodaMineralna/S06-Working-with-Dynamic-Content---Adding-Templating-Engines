@@ -1,6 +1,7 @@
 const path = require("path");
 
 const express = require("express");
+const expressHbs = require("express-handlebars");
 
 // ! Express.js Router is a valid Middleware Function!
 const adminData = require("./routes/admin");
@@ -8,8 +9,10 @@ const shopRoutes = require("./routes/shop");
 
 const app = express();
 
-app.set("view engine", "pug");
-app.set("views", "views") // default - `process path + "/views"` - so we don't have to add it there
+app.engine("hbs", expressHbs());
+app.set("view engine", "hbs"); // handlebars
+// app.set("view engine", "pug"); // pug
+app.set("views", "views"); // default - `process path + "/views"` - so we don't have to add it there
 
 // * Parses Bodies sent through a FORM
 // ^ and it automatically calls `next()`
@@ -21,7 +24,7 @@ app.use(shopRoutes);
 
 // If an invalid URL was provided, we don't 'enter' any admin/shop Routes, thus we don't execute any Middleware, THUS we pass to this one
 app.use((req, res, next) => {
-  res.status(404).render("404", { pageTitle: "404 Not Found!" })
+  res.status(404).render("404", { pageTitle: "404 Not Found!" });
 });
 
 // * Handle favicon.ico requests to prevent browsers from triggering middleware twice
