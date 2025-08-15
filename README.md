@@ -17,7 +17,6 @@ This project covers:
 - EJS
 - Pug
 - Handlebars
-- Build Tool - Node.js
 ## How to Run
 
 ```bash
